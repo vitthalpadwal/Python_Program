@@ -158,8 +158,25 @@ def pairwiseDifference(arr, n):
         print(diff, end=" ")
 
 
+#sum of theleft hand and right and element and diff it
+def lefthand_righthand():
+    list = [2,4,5]
+    lefthand = 0
+    righthand = 0
+    list1 = []
+    for i in range(len(list)):
+        lefthand = sum(list[:i])
+        print("lefthand", lefthand)
+        righthand = sum(list[i+1:])
+        print("righthand", righthand)
+        diff = abs(lefthand - righthand)
+        list1.append(diff)
+
+    print(list1)
+    print("index of the minimum element",list1.index(min(list1)))
 # driver program to check the above function
 if __name__ == "__main__":
+    '''
     input = 'geeks quiz practice ' \
             'code'
     print(reverseWords(input))
@@ -182,3 +199,6 @@ if __name__ == "__main__":
     arr = [4, 10, 15, 5, 6]
     n = len(arr)
     pairwiseDifference(arr, n)
+    '''
+    lefthand_righthand()
+
