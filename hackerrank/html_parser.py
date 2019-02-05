@@ -138,3 +138,30 @@ class MyHTMLParser(HTMLParser):
 parser = MyHTMLParser()
 parser.feed('<html><head><title>Test</title></head>'
             '<body><h1>Parse me!</h1></body></html>')
+
+#program
+from html.parser import HTMLParser
+
+class MyHtmlParser(HTMLParser):
+    def handle_attr(self, attrs):
+        for attr_val_tuple in attrs:
+            print('->', attr_val_tuple[0], '>', attr_val_tuple[1])
+
+    def handle_starttag(self, tag, attrs):
+        print("Start :", tag)
+        self.handle_attr(attrs)
+
+    def handle_endtag(self, tag):
+        print("End   :", tag)
+
+    def handle_startendtag(self, tag, attrs):
+        print("Empty :", tag)
+        self.handle_attr(attrs)
+
+if __name__ == "__main__":
+    n = int(input())
+    lines = ''
+    for i in range(n):
+        lines += input()
+    parser = MyHtmlParser()
+    parser.feed(lines)
